@@ -126,29 +126,29 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       ),
       CalcButton(
         symbol: Text(
-          '1',
+          '7',
           style: themeData.textTheme.bodyText1,
         ),
         handler: () {
-          calculation('1');
+          calculation('7');
         },
       ),
       CalcButton(
         symbol: Text(
-          '2',
+          '8',
           style: themeData.textTheme.bodyText1,
         ),
         handler: () {
-          calculation('2');
+          calculation('8');
         },
       ),
       CalcButton(
         symbol: Text(
-          '3',
+          '9',
           style: themeData.textTheme.bodyText1,
         ),
         handler: () {
-          calculation('3');
+          calculation('9');
         },
       ),
       CalcButton(
@@ -198,29 +198,29 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       ),
       CalcButton(
         symbol: Text(
-          '7',
+          '1',
           style: themeData.textTheme.bodyText1,
         ),
         handler: () {
-          calculation('7');
+          calculation('1');
         },
       ),
       CalcButton(
         symbol: Text(
-          '8',
+          '2',
           style: themeData.textTheme.bodyText1,
         ),
         handler: () {
-          calculation('8');
+          calculation('2');
         },
       ),
       CalcButton(
         symbol: Text(
-          '9',
+          '3',
           style: themeData.textTheme.bodyText1,
         ),
         handler: () {
-          calculation('9');
+          calculation('3');
         },
       ),
       CalcButton(
@@ -348,9 +348,10 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               }),
             ),
           ),
+          SizedBox(height: mediaQuery.size.height * 0.01),
           Container(
             alignment: Alignment.center,
-            height: mediaQuery.size.height * 0.55,
+            height: mediaQuery.size.height * 0.62,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(50),
@@ -363,12 +364,12 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                 padding: EdgeInsets.all(20),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 4,
-                  crossAxisSpacing: constraints.maxHeight * 0.041,
-                  mainAxisSpacing: constraints.maxWidth * 0.001,
+                  crossAxisSpacing: constraints.maxHeight * 0.05,
+                  mainAxisSpacing: constraints.maxWidth * 0.05,
                 ),
                 itemBuilder: (context, index) {
                   return InkWell(
-                    splashColor: themeData.splashColor,
+                    splashColor: themeData.primaryColor,
                     borderRadius: BorderRadius.circular(100),
                     onTap: jenisButton[index].handler,
                     child: Container(
@@ -376,7 +377,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                       decoration: BoxDecoration(
                         color: index == 18
                             ? themeData.primaryColorDark.withOpacity(0)
-                            : themeData.primaryColorDark,
+                            : themeData.primaryColorDark.withOpacity(0.1),
                         shape: BoxShape.circle,
                       ),
                       child: FittedBox(child: jenisButton[index].symbol),
