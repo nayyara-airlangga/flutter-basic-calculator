@@ -1,12 +1,11 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 
 import 'models/calc_button.dart';
-
-StreamController<bool> setTheme = StreamController();
+import 'widgets/theme_mode_switch.dart';
+import 'widgets/display_result.dart';
+import 'widgets/calc_keypad.dart';
+import 'themes.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,7 +15,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<bool>(
@@ -26,38 +24,8 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             title: 'Basic Calculator',
-            theme: ThemeData(
-              scaffoldBackgroundColor: Colors.white,
-              primaryColor: Colors.grey.shade200,
-              backgroundColor: Colors.grey[700],
-              primaryColorLight: Colors.black,
-              primaryColorDark: Colors.grey.withOpacity(0.1),
-              accentColor: Colors.grey.withOpacity(0.7),
-              splashColor: Colors.black,
-              textTheme: TextTheme(
-                bodyText1: TextStyle(
-                  color: Colors.black,
-                  fontSize: 32,
-                ),
-              ),
-            ),
-            darkTheme: ThemeData(
-              scaffoldBackgroundColor: Colors.black,
-              backgroundColor: Colors.black54,
-              primaryColor: Colors.grey.withOpacity(0.2),
-              primaryColorLight: Colors.grey.withOpacity(0.6),
-              primaryColorDark: Colors.grey.withOpacity(0.1),
-              accentColor: Colors.white,
-              textButtonTheme: TextButtonThemeData(
-                style: ButtonStyle(),
-              ),
-              textTheme: TextTheme(
-                bodyText1: TextStyle(
-                  color: Colors.white,
-                  fontSize: 32,
-                ),
-              ),
-            ),
+            theme: lightThemeData,
+            darkTheme: darkThemeData,
             home: CalculatorScreen(),
             themeMode: isLightMode.data == null
                 ? ThemeMode.system
@@ -276,117 +244,21 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       body: Column(
         children: <Widget>[
           SizedBox(height: mediaQuery.size.height * 0.01),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                height: mediaQuery.size.height * 0.06,
-                width: mediaQuery.size.width * 0.25,
-                decoration: BoxDecoration(
-                  color: themeData.primaryColor,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Container(
-                  alignment: Alignment.center,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Spacer(),
-                      GestureDetector(
-                        onTap: () {
-                          setTheme.add(true);
-                        },
-                        child: FittedBox(
-                          child: Icon(
-                            Icons.light_mode_outlined,
-                            color: themeData.primaryColorLight,
-                          ),
-                        ),
-                      ),
-                      Spacer(),
-                      GestureDetector(
-                        onTap: () {
-                          setTheme.add(false);
-                        },
-                        child: FittedBox(
-                          child: Icon(
-                            Icons.dark_mode_outlined,
-                            color: themeData.accentColor,
-                          ),
-                        ),
-                      ),
-                      Spacer(),
-                    ],
-                  ),
-                ),
-              ),
-            ],
+          ThemeModeSwitch(
+            mediaQuery: mediaQuery,
+            themeData: themeData,
           ),
           Spacer(),
-          Container(
-            height: mediaQuery.size.height * 0.1,
-            width: mediaQuery.size.width,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: LayoutBuilder(builder: (context, constraints) {
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    Container(
-                      height: constraints.maxHeight,
-                      width: constraints.maxWidth,
-                      child: FittedBox(
-                        child: Text(
-                          '$text',
-                          style: themeData.textTheme.bodyText1
-                              .copyWith(fontSize: 80),
-                        ),
-                      ),
-                    ),
-                  ],
-                );
-              }),
-            ),
+          DisplayResult(
+            mediaQuery: mediaQuery,
+            text: text,
+            themeData: themeData,
           ),
           SizedBox(height: mediaQuery.size.height * 0.01),
-          Container(
-            alignment: Alignment.center,
-            height: mediaQuery.size.height * 0.62,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(50),
-                topRight: Radius.circular(50),
-              ),
-              color: themeData.primaryColor,
-            ),
-            child: LayoutBuilder(builder: (context, constraints) {
-              return GridView.builder(
-                padding: EdgeInsets.all(20),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 4,
-                  crossAxisSpacing: constraints.maxHeight * 0.05,
-                  mainAxisSpacing: constraints.maxWidth * 0.05,
-                ),
-                itemBuilder: (context, index) {
-                  return InkWell(
-                    splashColor: themeData.primaryColor,
-                    borderRadius: BorderRadius.circular(100),
-                    onTap: jenisButton[index].handler,
-                    child: Container(
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: index == 18
-                            ? themeData.primaryColorDark.withOpacity(0)
-                            : themeData.primaryColorDark.withOpacity(0.1),
-                        shape: BoxShape.circle,
-                      ),
-                      child: FittedBox(child: jenisButton[index].symbol),
-                    ),
-                  );
-                },
-                itemCount: jenisButton.length,
-              );
-            }),
+          CalcKeypad(
+            mediaQuery: mediaQuery,
+            themeData: themeData,
+            jenisButton: jenisButton,
           ),
         ],
       ),
