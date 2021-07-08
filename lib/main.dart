@@ -63,9 +63,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               .copyWith(color: Colors.teal.shade200),
         ),
         textSymbol: 'AC',
-        handler: () {
-          calculation('AC');
-        },
+        handler: () {},
       ),
       CalcButton(
         symbol: Text(
@@ -74,9 +72,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               .copyWith(color: Colors.teal.shade200),
         ),
         textSymbol: '+/-',
-        handler: () {
-          calculation('+/-');
-        },
+        handler: () {},
       ),
       CalcButton(
         symbol: Text(
@@ -85,9 +81,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               .copyWith(color: Colors.teal.shade200),
         ),
         textSymbol: '%',
-        handler: () {
-          calculation('%');
-        },
+        handler: () {},
       ),
       CalcButton(
         symbol: Text(
@@ -95,9 +89,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           style: themeData.textTheme.bodyText1.copyWith(color: Colors.red),
         ),
         textSymbol: '/',
-        handler: () {
-          calculation('/');
-        },
+        handler: () {},
       ),
       CalcButton(
         symbol: Text(
@@ -105,9 +97,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           style: themeData.textTheme.bodyText1,
         ),
         textSymbol: '7',
-        handler: () {
-          calculation('7');
-        },
+        handler: () {},
       ),
       CalcButton(
         symbol: Text(
@@ -115,9 +105,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           style: themeData.textTheme.bodyText1,
         ),
         textSymbol: '8',
-        handler: () {
-          calculation('8');
-        },
+        handler: () {},
       ),
       CalcButton(
         symbol: Text(
@@ -125,9 +113,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           style: themeData.textTheme.bodyText1,
         ),
         textSymbol: '9',
-        handler: () {
-          calculation('9');
-        },
+        handler: () {},
       ),
       CalcButton(
         symbol: Text(
@@ -135,9 +121,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           style: themeData.textTheme.bodyText1.copyWith(color: Colors.red),
         ),
         textSymbol: 'x',
-        handler: () {
-          calculation('x');
-        },
+        handler: () {},
       ),
       CalcButton(
         symbol: Text(
@@ -145,9 +129,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           style: themeData.textTheme.bodyText1,
         ),
         textSymbol: '4',
-        handler: () {
-          calculation('4');
-        },
+        handler: () {},
       ),
       CalcButton(
         symbol: Text(
@@ -155,9 +137,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           style: themeData.textTheme.bodyText1,
         ),
         textSymbol: '5',
-        handler: () {
-          calculation('5');
-        },
+        handler: () {},
       ),
       CalcButton(
         symbol: Text(
@@ -165,9 +145,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           style: themeData.textTheme.bodyText1,
         ),
         textSymbol: '6',
-        handler: () {
-          calculation('6');
-        },
+        handler: () {},
       ),
       CalcButton(
         symbol: Text(
@@ -175,9 +153,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           style: themeData.textTheme.bodyText1.copyWith(color: Colors.red),
         ),
         textSymbol: '+',
-        handler: () {
-          calculation('+');
-        },
+        handler: () {},
       ),
       CalcButton(
         symbol: Text(
@@ -185,9 +161,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           style: themeData.textTheme.bodyText1,
         ),
         textSymbol: '1',
-        handler: () {
-          calculation('1');
-        },
+        handler: () {},
       ),
       CalcButton(
         symbol: Text(
@@ -195,9 +169,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           style: themeData.textTheme.bodyText1,
         ),
         textSymbol: '2',
-        handler: () {
-          calculation('2');
-        },
+        handler: () {},
       ),
       CalcButton(
         symbol: Text(
@@ -205,9 +177,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           style: themeData.textTheme.bodyText1,
         ),
         textSymbol: '3',
-        handler: () {
-          calculation('3');
-        },
+        handler: () {},
       ),
       CalcButton(
         symbol: Text(
@@ -215,9 +185,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           style: themeData.textTheme.bodyText1.copyWith(color: Colors.red),
         ),
         textSymbol: '-',
-        handler: () {
-          calculation('-');
-        },
+        handler: () {},
       ),
       CalcButton(
           symbol: Icon(
@@ -232,9 +200,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           style: themeData.textTheme.bodyText1,
         ),
         textSymbol: '0',
-        handler: () {
-          calculation('0');
-        },
+        handler: () {},
       ),
       CalcButton(
         symbol: Text(
@@ -242,9 +208,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           style: themeData.textTheme.bodyText1,
         ),
         textSymbol: '.',
-        handler: () {
-          calculation('.');
-        },
+        handler: () {},
       ),
       CalcButton(
         symbol: Text(
@@ -252,9 +216,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           style: themeData.textTheme.bodyText1.copyWith(color: Colors.red),
         ),
         textSymbol: '=',
-        handler: () {
-          calculation('=');
-        },
+        handler: () {},
       ),
     ];
 
@@ -287,6 +249,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
             widthConstant: 1,
             padding: 20,
           ),
+
           SizedBox(height: mediaQuery.size.height * 0.01),
 
           //Calculator Keypad
@@ -329,7 +292,6 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                           if (userInput.isNotEmpty)
                             userInput =
                                 userInput.substring(0, userInput.length - 1);
-                          else if (userInput.isEmpty) userInput = '0';
                         });
                       } else if (index == 19) {
                         setState(() {
@@ -380,118 +342,12 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   void equalPressed() {
     String finaluserinput = userInput;
     finaluserinput = userInput.replaceAll('x', '*');
-    finaluserinput = userInput.replaceAll('+/-', '-');
+    // finaluserinput = userInput.replaceAll('+/-', '-');
 
     Parser p = Parser();
     Expression exp = p.parse(finaluserinput);
     ContextModel cm = ContextModel();
     double eval = exp.evaluate(EvaluationType.REAL, cm);
     answer = eval.toString();
-  }
-
-  dynamic text = '0';
-  double numOne = 0;
-  double numTwo = 0;
-
-  dynamic result = '';
-  dynamic finalResult = '';
-  dynamic opr = '';
-  dynamic preOpr = '';
-  void calculation(btnText) {
-    if (btnText == 'AC') {
-      text = '0';
-      numOne = 0;
-      numTwo = 0;
-      result = '';
-      finalResult = '0';
-      opr = '';
-      preOpr = '';
-    } else if (opr == '=' && btnText == '=') {
-      if (preOpr == '+') {
-        finalResult = add();
-      } else if (preOpr == '-') {
-        finalResult = sub();
-      } else if (preOpr == 'x') {
-        finalResult = mul();
-      } else if (preOpr == '/') {
-        finalResult = div();
-      }
-    } else if (btnText == '+' ||
-        btnText == '-' ||
-        btnText == 'x' ||
-        btnText == '/' ||
-        btnText == '=') {
-      if (numOne == 0) {
-        numOne = double.parse(result);
-      } else {
-        numTwo = double.parse(result);
-      }
-
-      if (opr == '+') {
-        finalResult = add();
-      } else if (opr == '-') {
-        finalResult = sub();
-      } else if (opr == 'x') {
-        finalResult = mul();
-      } else if (opr == '/') {
-        finalResult = div();
-      }
-      preOpr = opr;
-      opr = btnText;
-      result = '';
-    } else if (btnText == '%') {
-      result = numOne / 100;
-      finalResult = doesContainDecimal(result);
-    } else if (btnText == '.') {
-      if (!result.toString().contains('.')) {
-        result = result.toString() + '.';
-      }
-      finalResult = result;
-    } else if (btnText == '+/-') {
-      result.toString().startsWith('-')
-          ? result = result.toString().substring(1)
-          : result = '-' + result.toString();
-      finalResult = result;
-    } else {
-      result = result + btnText;
-      finalResult = result;
-    }
-
-    setState(() {
-      text = finalResult;
-    });
-  }
-
-  String add() {
-    result = (numOne + numTwo).toString();
-    numOne = double.parse(result);
-    return doesContainDecimal(result);
-  }
-
-  String sub() {
-    result = (numOne - numTwo).toString();
-    numOne = double.parse(result);
-    return doesContainDecimal(result);
-  }
-
-  String mul() {
-    result = (numOne * numTwo).toString();
-    numOne = double.parse(result);
-    return doesContainDecimal(result);
-  }
-
-  String div() {
-    result = (numOne / numTwo).toString();
-    numOne = double.parse(result);
-    return doesContainDecimal(result);
-  }
-
-  String doesContainDecimal(dynamic result) {
-    if (result.toString().contains('.')) {
-      List<String> splitDecimal = result.toString().split('.');
-      if (!(int.parse(splitDecimal[1]) > 0))
-        return result = splitDecimal[0].toString();
-    }
-    return result;
   }
 }

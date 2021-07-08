@@ -28,7 +28,6 @@ class DisplayResult extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: padding),
         child: LayoutBuilder(builder: (context, constraints) {
           return Container(
-            height: constraints.maxHeight,
             child: FittedBox(
               child: Text(
                 '$text',
