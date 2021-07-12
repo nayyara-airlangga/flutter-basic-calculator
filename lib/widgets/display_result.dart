@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 class DisplayResult extends StatelessWidget {
-  const DisplayResult(
-      {Key key,
-      @required this.mediaQuery,
-      @required this.text,
-      @required this.themeData,
-      @required this.heightConstant,
-      @required this.widthConstant,
-      this.padding})
-      : super(key: key);
+  const DisplayResult({
+    Key key,
+    @required this.mediaQuery,
+    @required this.text,
+    @required this.themeData,
+    this.heightConstant = 1,
+    this.widthConstant = 1,
+    this.padding,
+  }) : super(key: key);
 
   final MediaQueryData mediaQuery;
   final double heightConstant;
@@ -31,7 +31,7 @@ class DisplayResult extends StatelessWidget {
             child: FittedBox(
               child: Text(
                 '$text',
-                style: themeData.textTheme.bodyText1.copyWith(fontSize: 80),
+                style: themeData.textTheme.bodyText1.copyWith(fontSize: 150),
               ),
             ),
           );

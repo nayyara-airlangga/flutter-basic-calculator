@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 
 class CalcButton {
-  Widget symbol;
-  String textSymbol;
-  Function handler;
+  final Widget symbol;
+  final String textSymbol;
 
-  CalcButton({
+  const CalcButton({
     this.symbol,
-    this.handler,
     this.textSymbol,
   });
 }
